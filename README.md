@@ -1,14 +1,67 @@
-<h1>Pedido de Namoro</h1>
+<!DOCTYPE html>
+<!-- 
+Tutorial: https://www.youtube.com/watch?v=zxxB9SFh9p4
+-->
+<html lang="en">
 
-<p>Este projeto contém um simples pedido de namoro feito em HTML e JS, com um toque divertido. Literalmente irresistível, quando o mouse se aproxima do botão "não", ele "foge" aparecendo aleatoriamente na tela, impossibilitando clicar no "não". Se o usuário clicar no botão "Sim", ele será surpreendido com uma mensagem de congratulações</p>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namora comigo?</title>
+</head>
 
-https://github.com/coelhobugado/Pedido-de-Namoro/assets/56519014/030c049c-f653-453e-8bc2-08803e3a1e19
+<body>
+    <div id="conteudo">
+        <h2>Aceita namorar comigo?</h2>
+        <div style="margin: auto;width: 170px;">
+            <button style="position: fixed;display: block;" class="btn" onclick="sim()">SIM</button>
+            <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute;">NÃO</button>
+        </div>
+    </div>
+</body>
+<style>
+    #conteudo {
+        background: #ff7a7a;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        text-align: center;
+        font-family: sans-serif;
+    }
 
+    .btn {
+        background: black;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 80px;
+        border-radius: 5px;
+    }
+</style>
 
-<p>Este projeto contém um simples pedido de namoro feito em HTML e JS, com um toque divertido. Ao clicar no botão "Não", ele se desloca randomicamente pela tela. Se o usuário clicar no botão "Sim", ele vai ser surpreendido com uma mensagem de congratulações.</p>
+<script>
+    function sim() {
+        alert("Você aceitou namorar comigo! :)");
+        // redireciona para um URL após clicar no SIM
+        location.href = "https://music.youtube.com/watch?v=izGwDsrQ1eQ";
+    }
 
-<h2>Emojis utilizados:</h2>
+    function desvia(btn) {
+        // btn declarado na função
+        btn.style.position = 'absolute';
+        btn.style.bottom = geraPosicao(10, 90);
+        btn.style.left = geraPosicao(10, 90);
+        console.log('opa, desviei...');
+    }
 
-<ul>
-  <li>🎉 (Parabéns)</li>
-</ul>
+    function geraPosicao(min, max) {
+        return (Math.random() * (max - min) + min) + "%";
+    }
+
+</script>
+
+</html>
